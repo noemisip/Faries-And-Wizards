@@ -1,0 +1,88 @@
+<%- include('header') -%>
+<body>
+<div class="col-12">
+    <br /><br />
+</div>
+<div class="row">
+    <div class="col-5">
+        <br />
+    </div>
+    <div class="col-5">
+        <h1 style="color:#000">Tündérek</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        Név
+                    </th>
+                    <th>
+                        Szárnyméret(cm)
+                    </th>
+                    <th>
+                        Csillámpormennyiség(g)
+                    </th>
+                    <th>
+                       Lakhely
+                    </th>
+                    <th>
+                       Jótündér?
+                    </th>
+                    <th>
+                        Varázsigék
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+                <% fairies.forEach(function(fairy){ %>
+                    <tr>
+                        <td>
+                            <%= fairy.name %>
+                        </td>
+                        <td>
+                            <%= fairy.wingSize %>
+                        </td>
+                        <td>
+                            <%= fairy.glitter %>
+                        </td>
+                        <td>
+                            <%= fairy.home %>
+                        </td>
+                        <td>
+                            <%= fairy.goodFairy %>
+                        </td>
+                        <td>
+                            <% spells.forEach(function(spell){ %>
+                                <% fairy._spells.forEach(function(spell2){ %>
+
+                                    <% if (spell._id.equals(spell2._id)) { %>
+                                        <%= spell.name%>
+                                <% } %>
+                                <% }); %>
+                                <% }); %>
+                        </td>
+                        </td>
+                        <td style="width:30px;white-space: nowrap">
+                            <a href="/tunder/edit/<%= fairy._id %>"
+                               class="btn btn-secondary">Tündér módosítása</a>
+                            <a href="/tunder/del/<%= fairy._id %>"
+                               href="#" class="btn btn-secondary">Törlés</a>
+                            <a href="/varazsige/<%= fairy._id %>"
+                               href="#" class="btn btn-secondary">Varázsigék hozzáadása</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+            <br/>
+            <a href="/tunder/new" class="btn btn-secondary">Új tündér hozzáadása</a>
+        </div>
+    </div>
+
+
+</div>
+<%- include('footer') -%>

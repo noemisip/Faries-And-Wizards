@@ -1,0 +1,58 @@
+<%- include('header') -%>
+<div class="col-12">
+    <br /><br />
+</div>
+<div class="row">
+    <div class="col-5">
+        <br />
+    </div>
+    <div class="col-5">
+        <h1 style="color:#000">Varázsigék</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        Név
+                    </th>
+                    <th>
+                       Hosszúság(s)
+                    </th>
+                    <th>
+                        Kell hozzá pálca?
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+                <% spells.forEach(function(spell){ %>
+                    <tr>
+                        <td>
+                            <%= spell.name %>
+                        </td>
+                        <td>
+                            <%= spell.duration %>
+                        </td>
+                        <td>
+                            <%= spell.wandNeeded %>
+                        </td>
+                        <td style="width:30px;white-space: nowrap">
+                            <a href="/varazsige/edit/<%= spell._id %>"
+                               class="btn btn-secondary">Varázsige módosítása</a>
+                            <a href="/varazsige/del/<%= spell._id %>"
+                               href="#" class="btn btn-secondary">Törlés</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+            <br/>
+            <a href="/varazsige/new" class="btn btn-secondary">Új varázsige hozzáadása</a>
+        </div>
+    </div>
+
+</div>
+<%- include('footer') -%>

@@ -1,0 +1,98 @@
+<%- include('header') -%>
+<div class="col-12">
+    <br /><br />
+</div>
+<div class="row">
+    <div class="col-4">
+        <br />
+    </div>
+    <div class="col-5">
+        <h1 style="color:#000">Tündér
+            <% if (typeof fairy === 'undefined') { %>
+                létrehozás
+            <% }else{ %>
+                módosítás
+            <% } %></h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form method = "POST">
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="nev">Név</label>
+                            <input type="text" class="form-control" id="name" name="name"
+                            value="<%= (typeof fairy === 'undefined')? '' : fairy.name %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="szarny">Szárnyméret(cm)</label>
+                            <input type="text" class="form-control" id="wingSize" name="wingSize"
+                                   value="<%= (typeof fairy === 'undefined')? '' : fairy.wingSize %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="lakhely">Lakhely</label>
+                            <input type="text" class="form-control" id="home" name="home"
+                                   value="<%= (typeof fairy === 'undefined')? '' : fairy.home %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6">
+                        <div class="csillámpormennyiség(g)">
+                            <label for="csillam">Csillampormennyiség</label>
+                            <input type="text" class="form-control" id="glitter" name="glitter"
+                                   value="<%= (typeof fairy === 'undefined')? '' : fairy.glitter %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group form-check">
+                            <label for="wandNeeded2">Jó tündér?</label>
+                            <input type="checkbox" id="goodFairy" name="goodFairy"
+                                   value=true></label>
+                            <label for="wandNeeded">Igen</label>
+                            <input type="checkbox" id="goodFairy" name="goodFairy"
+                                   value=false></label>
+                            <label for="wandNeeded2">Nem</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-5">
+                        <input type="submit" class="btn btn-secondary" value="Mentés"/>
+                        <a class="btn btn-light" href="/">Mégsem</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<%- include('footer') -%>
